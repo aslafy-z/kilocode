@@ -22,24 +22,37 @@ export interface GitProgressOptions extends GitOptions {
  * Utility class for Git operations using direct shell commands
  */
 export class GitExtensionService {
-	private workspaceRoot: string
-	private ignoreController: RooIgnoreController
-	private targetRepository: { inputBox: { value: string } } | null = null
+	private workspaceRoot: string | undefined
+	private ignoreController: RooIgnoreController | undefined
+	private targetRepository: { inputBox: { value: string }; rootUri?: vscode.Uri } | null = null
+	private isInitialized: boolean = false
 
 	constructor() {
-		this.workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath ?? process.cwd()
+		// Initialize with fallback workspace root
+		this.workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath
 
-		this.ignoreController = new RooIgnoreController(this.workspaceRoot)
-		this.ignoreController.initialize()
+		this.updateWorkspaceContext()
 	}
 
 	/**
-	 * Initialize the service by checking if git is available
+	 * Lazy initialization - only called when we actually need to perform git operations
 	 */
-	public async initialize(): Promise<boolean> {
+	private async ensureInitialized(): Promise<boolean> {
+		if (this.isInitialized) {
+			return true
+		}
+
 		try {
+			// Ensure we have a valid workspace root before trying git operations
+			if (!this.workspaceRoot) {
+				console.log(`[GitExtensionService] No workspace root available for git operations`)
+				return false
+			}
+
 			// Check if git is available and we're in a git repository
 			this.spawnGitWithArgs(["rev-parse", "--is-inside-work-tree"])
+			this.isInitialized = true
+			console.log(`[GitExtensionService] Successfully initialized with workspace: ${this.workspaceRoot}`)
 			return true
 		} catch (error) {
 			console.error("Git initialization failed:", error)
@@ -48,15 +61,28 @@ export class GitExtensionService {
 	}
 
 	/**
+	 * Public initialize method for backward compatibility
+	 */
+	public async initialize(): Promise<boolean> {
+		return this.ensureInitialized()
+	}
+
+	/**
 	 * Configures the repository context for multi-workspace scenarios
 	 */
 	public configureRepositoryContext(resourceUri?: vscode.Uri): void {
 		if (resourceUri) {
-			this.targetRepository = this.determineTargetRepository(resourceUri)
+			const newTargetRepository = this.determineTargetRepository(resourceUri)
+			if (newTargetRepository && newTargetRepository !== this.targetRepository) {
+				this.targetRepository = newTargetRepository
+				this.updateWorkspaceContext()
+			}
 		}
 	}
 
-	private determineTargetRepository(resourceUri: vscode.Uri): { inputBox: { value: string } } | null {
+	private determineTargetRepository(
+		resourceUri: vscode.Uri,
+	): { inputBox: { value: string }; rootUri?: vscode.Uri } | null {
 		try {
 			const gitExtension = vscode.extensions.getExtension("vscode.git")
 			if (!gitExtension || !gitExtension.isActive) {
@@ -78,10 +104,42 @@ export class GitExtensionService {
 	}
 
 	/**
+	 * Updates the workspace context when the target repository changes
+	 */
+	private updateWorkspaceContext(): void {
+		if (!this.targetRepository?.rootUri) {
+			return
+		}
+
+		const newWorkspaceRoot = this.targetRepository.rootUri.fsPath
+		console.log(
+			`[GitExtensionService] updateWorkspaceContext - New workspace root: ${newWorkspaceRoot}, Current: ${this.workspaceRoot}`,
+		)
+
+		if (newWorkspaceRoot !== this.workspaceRoot) {
+			this.ignoreController?.dispose()
+			this.workspaceRoot = newWorkspaceRoot
+
+			// Reset initialization flag since workspace changed
+			this.isInitialized = false
+
+			// Create new ignore controller with the updated workspace root
+			this.ignoreController = new RooIgnoreController(this.workspaceRoot)
+			this.ignoreController.initialize()
+		}
+	}
+
+	/**
 	 * Gathers information about changes (staged or unstaged)
 	 */
 	public async gatherChanges(options: GitProgressOptions): Promise<GitChange[]> {
 		try {
+			// Ensure git is initialized before performing operations
+			const initialized = await this.ensureInitialized()
+			if (!initialized) {
+				return []
+			}
+
 			const statusOutput = this.getStatus(options)
 			if (!statusOutput.trim()) {
 				return []
@@ -97,7 +155,7 @@ export class GitExtensionService {
 				const filePath = line.substring(1).trim()
 
 				changes.push({
-					filePath: path.join(this.workspaceRoot, filePath),
+					filePath: path.join(this.workspaceRoot || process.cwd(), filePath),
 					status: this.getChangeStatusFromCode(statusCode),
 				})
 			}
@@ -130,6 +188,10 @@ export class GitExtensionService {
 	 */
 	public spawnGitWithArgs(args: string[]): string {
 		try {
+			if (!this.workspaceRoot) {
+				return ""
+			}
+
 			const result = spawnSync("git", args, {
 				cwd: this.workspaceRoot,
 				encoding: "utf8",
@@ -163,7 +225,7 @@ export class GitExtensionService {
 
 			let processedFiles = 0
 			for (const filePath of files) {
-				if (this.ignoreController.validateAccess(filePath) && !shouldExcludeLockFile(filePath)) {
+				if (this.ignoreController?.validateAccess(filePath) && !shouldExcludeLockFile(filePath)) {
 					const diff = this.getGitDiff(filePath, { staged }).trim()
 					diffs.push(diff)
 				}
@@ -215,6 +277,11 @@ export class GitExtensionService {
 	public async getCommitContext(changes: GitChange[], options: GitProgressOptions): Promise<string> {
 		const { staged } = options
 		try {
+			// Ensure git is initialized before performing operations
+			const initialized = await this.ensureInitialized()
+			if (!initialized) {
+				return "## Git Context for Commit Message Generation\n\n(Git not available)\n"
+			}
 			// Start building the context with the required sections
 			let context = "## Git Context for Commit Message Generation\n\n"
 
@@ -307,7 +374,6 @@ export class GitExtensionService {
 	}
 
 	public dispose() {
-		this.ignoreController.dispose()
+		this.ignoreController?.dispose()
 	}
 }
-

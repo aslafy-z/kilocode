@@ -12,6 +12,10 @@ import type { ProviderSettings } from "@roo-code/types"
 import delay from "delay"
 import { TelemetryService } from "@roo-code/telemetry"
 
+export interface GitCommitContext {
+	rootUri: vscode.Uri
+}
+
 /**
  * Provides AI-powered commit message generation for source control management.
  * Integrates with Git repositories to analyze staged changes and generate
@@ -52,7 +56,7 @@ export class CommitMessageProvider {
 		// Register the command
 		const disposable = vscode.commands.registerCommand(
 			"kilo-code.generateCommitMessage",
-			(resourceUri?: vscode.Uri) => this.generateCommitMessage(resourceUri),
+			(commitContext?: GitCommitContext) => this.generateCommitMessage(commitContext),
 		)
 		this.context.subscriptions.push(disposable)
 		this.context.subscriptions.push(this.gitService)
@@ -61,7 +65,7 @@ export class CommitMessageProvider {
 	/**
 	 * Generates an AI-powered commit message based on staged changes, or unstaged changes if no staged changes exist.
 	 */
-	public async generateCommitMessage(resourceUri?: vscode.Uri): Promise<void> {
+	public async generateCommitMessage(commitContext?: GitCommitContext): Promise<void> {
 		await vscode.window.withProgress(
 			{
 				location: vscode.ProgressLocation.SourceControl,
@@ -70,7 +74,7 @@ export class CommitMessageProvider {
 			},
 			async (progress) => {
 				try {
-					this.gitService.configureRepositoryContext(resourceUri)
+					this.gitService.configureRepositoryContext(commitContext?.rootUri)
 
 					let staged = true
 					let changes = await this.gitService.gatherChanges({ staged })
