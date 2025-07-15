@@ -50,8 +50,9 @@ export class CommitMessageProvider {
 		}
 
 		// Register the command
-		const disposable = vscode.commands.registerCommand("kilo-code.generateCommitMessage", () =>
-			this.generateCommitMessage(),
+		const disposable = vscode.commands.registerCommand(
+			"kilo-code.generateCommitMessage",
+			(resourceUri?: vscode.Uri) => this.generateCommitMessage(resourceUri),
 		)
 		this.context.subscriptions.push(disposable)
 		this.context.subscriptions.push(this.gitService)
@@ -60,7 +61,7 @@ export class CommitMessageProvider {
 	/**
 	 * Generates an AI-powered commit message based on staged changes, or unstaged changes if no staged changes exist.
 	 */
-	public async generateCommitMessage(): Promise<void> {
+	public async generateCommitMessage(resourceUri?: vscode.Uri): Promise<void> {
 		await vscode.window.withProgress(
 			{
 				location: vscode.ProgressLocation.SourceControl,
@@ -69,6 +70,8 @@ export class CommitMessageProvider {
 			},
 			async (progress) => {
 				try {
+					this.gitService.configureRepositoryContext(resourceUri)
+
 					let staged = true
 					let changes = await this.gitService.gatherChanges({ staged })
 

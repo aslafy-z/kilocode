@@ -24,6 +24,7 @@ export interface GitProgressOptions extends GitOptions {
 export class GitExtensionService {
 	private workspaceRoot: string
 	private ignoreController: RooIgnoreController
+	private targetRepository: { inputBox: { value: string } } | null = null
 
 	constructor() {
 		this.workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath ?? process.cwd()
@@ -43,6 +44,36 @@ export class GitExtensionService {
 		} catch (error) {
 			console.error("Git initialization failed:", error)
 			return false
+		}
+	}
+
+	/**
+	 * Configures the repository context for multi-workspace scenarios
+	 */
+	public configureRepositoryContext(resourceUri?: vscode.Uri): void {
+		if (resourceUri) {
+			this.targetRepository = this.determineTargetRepository(resourceUri)
+		}
+	}
+
+	private determineTargetRepository(resourceUri: vscode.Uri): { inputBox: { value: string } } | null {
+		try {
+			const gitExtension = vscode.extensions.getExtension("vscode.git")
+			if (!gitExtension || !gitExtension.isActive) {
+				return null
+			}
+
+			const gitApi = gitExtension?.exports.getAPI(1)
+			for (const repo of gitApi?.repositories ?? []) {
+				if (repo.rootUri && resourceUri.fsPath.startsWith(repo.rootUri.fsPath)) {
+					return repo
+				}
+			}
+
+			return gitApi.repositories[0] // Fallback to first repository
+		} catch (error) {
+			console.error("Error determining target repository:", error)
+			return null
 		}
 	}
 
@@ -83,24 +114,13 @@ export class GitExtensionService {
 	 * Sets the commit message in the Git input box
 	 */
 	public setCommitMessage(message: string): void {
-		try {
-			// Try to use the VS Code Git Extension API to set the commit message directly
-			const gitExtension = vscode.extensions.getExtension("vscode.git")
-			if (gitExtension && gitExtension.isActive) {
-				const gitApi = gitExtension.exports.getAPI(1)
-				if (gitApi?.repositories?.length > 0) {
-					const repo = gitApi.repositories[0]
-					repo.inputBox.value = message
-					return
-				}
-			}
-
-			// Fallback to clipboard if VS Code Git Extension API is not available
-			this.copyToClipboardFallback(message)
-		} catch (error) {
-			console.error("Error setting commit message:", error)
-			this.copyToClipboardFallback(message)
+		if (this.targetRepository) {
+			this.targetRepository.inputBox.value = message
+			return
 		}
+
+		// Fallback to clipboard if VS Code Git Extension API is not available
+		this.copyToClipboardFallback(message)
 	}
 
 	/**
@@ -290,3 +310,4 @@ export class GitExtensionService {
 		this.ignoreController.dispose()
 	}
 }
+
