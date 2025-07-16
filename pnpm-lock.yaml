@@ -715,7 +715,7 @@ importers:
     dependencies:
       '@anthropic-ai/bedrock-sdk':
         specifier: ^0.22.0
-        version: 0.22.1
+        version: 0.22.4
       '@anthropic-ai/sdk':
         specifier: ^0.51.0
         version: 0.51.0
@@ -1347,8 +1347,8 @@ packages:
   '@antfu/utils@8.1.1':
     resolution: {integrity: sha512-Mex9nXf9vR6AhcXmMrlz/HVgYYZpVGJ6YlPgwl7UnaFpnshXs6EK/oa5Gpf3CzENMjkvEx2tQtntGnb7UtSTOQ==}
 
-  '@anthropic-ai/bedrock-sdk@0.22.1':
-    resolution: {integrity: sha512-BXz8DhUYEq0a3PsbPBjCadIewzdq6fcrpi9wOZ94MxhrQ/y0y1wYTFVXNO8mcLfleQOXOokLQNGeIC0yKk/FYw==}
+  '@anthropic-ai/bedrock-sdk@0.22.4':
+    resolution: {integrity: sha512-8u9RYH5Sfd9NykfJe86zX21Tc1I/1rLLl/DK9gkCL+xLgtSfUcAY285Fov6xk8ErRJfQLbGpbLAjSAzJNmf3sg==}
 
   '@anthropic-ai/sdk@0.51.0':
     resolution: {integrity: sha512-fAFC/uHhyzfw7rs65EPVV+scXDytGNm5BjttxHf6rP/YGvaBRKEvp2lwyuMigTwMI95neeG4bzrZigz7KCikjw==}
@@ -1479,6 +1479,10 @@ packages:
 
   '@aws-sdk/types@3.821.0':
     resolution: {integrity: sha512-Znroqdai1a90TlxGaJ+FK1lwC0fHpo97Xjsp5UKGR5JODYm7f9+/fF17ebO1KdoBr/Rm0UIFiF5VmI8ts9F1eA==}
+    engines: {node: '>=18.0.0'}
+
+  '@aws-sdk/types@3.840.0':
+    resolution: {integrity: sha512-xliuHaUFZxEx1NSXeLLZ9Dyu6+EJVQKEoD+yM+zqUo3YDZ7medKJWY6fIOKiPX/N7XbLdBYwajb15Q7IL8KkeA==}
     engines: {node: '>=18.0.0'}
 
   '@aws-sdk/util-endpoints@3.821.0':
@@ -2374,16 +2378,16 @@ packages:
   '@libsql/client@0.15.8':
     resolution: {integrity: sha512-TskygwF+ToZeWhPPT0WennyGrP3tmkKraaKopT2YwUjqD6DWDRm6SG5iy0VqnaO+HC9FNBCDX0oQPODU3gqqPQ==}
 
-  '@libsql/core@0.15.8':
-    resolution: {integrity: sha512-oX2fQqDbZkaBUvFMGvJq1Jh+mVzJrgNbEwK6Wzvp91z3uMe9iaIIXgO8yxB72RpUf7BqzjiKHjEiRXytfTdbUw==}
+  '@libsql/core@0.15.10':
+    resolution: {integrity: sha512-fAMD+GnGQNdZ9zxeNC8AiExpKnou/97GJWkiDDZbTRHj3c9dvF1y4jsRQ0WE72m/CqTdbMGyU98yL0SJ9hQVeg==}
 
-  '@libsql/darwin-arm64@0.5.12':
-    resolution: {integrity: sha512-RDA87qaCWPE+uJWY91A0Is8KU9x43xDWMH8VNlj330CLFT9rC6jDypqadg0mzu1FEL2leG6BRdX6EcfM6NM3pw==}
+  '@libsql/darwin-arm64@0.5.15':
+    resolution: {integrity: sha512-BD4c4WHUu988PmJCtF1WNKoSmY4nAg4T6ZRaigt6fKY2qlS/+9uSB8LSqIIq3WwqxQm9SuJijMGMKDoH6dEFdA==}
     cpu: [arm64]
     os: [darwin]
 
-  '@libsql/darwin-x64@0.5.12':
-    resolution: {integrity: sha512-6Ufip8uxQkLOFCsGd07miDt1w+Rx5VIJdDI6mSRBlVaEXWuWx1R8D7gfeCS0k73vDd+oh39pYF/R8nVFkwiOcg==}
+  '@libsql/darwin-x64@0.5.15':
+    resolution: {integrity: sha512-mw5rRffZQIU0RqmP3KS6HsV+ZuThfX3fxlAbytSmWe1PPrDZgSm1BWmWt0OmYC656TGgAGqTsFnEkV5Dmzv3Jw==}
     cpu: [x64]
     os: [darwin]
 
@@ -2397,38 +2401,38 @@ packages:
   '@libsql/isomorphic-ws@0.1.5':
     resolution: {integrity: sha512-DtLWIH29onUYR00i0GlQ3UdcTRC6EP4u9w/h9LxpUZJWRMARk6dQwZ6Jkd+QdwVpuAOrdxt18v0K2uIYR3fwFg==}
 
-  '@libsql/linux-arm-gnueabihf@0.5.12':
-    resolution: {integrity: sha512-I+4K++7byiOjYJNRGcrCBlIXjP6MwUta2GxPGZMoH2kAv6AintO4dvritu6vDe9LyRPXTjRJl30k+ThXR0RWxQ==}
+  '@libsql/linux-arm-gnueabihf@0.5.15':
+    resolution: {integrity: sha512-FPIh8ppymZqV+y8AUNtzzIXGwRH3LEpsFtvp7fuQU+OWOn0INjB7MdlCqyCSyHPFipC5i7Eg9BhSAyRhrvCptQ==}
     cpu: [arm]
     os: [linux]
 
-  '@libsql/linux-arm-musleabihf@0.5.12':
-    resolution: {integrity: sha512-87C3A5ozNEdOnI5VZq9lHpPJ3Ncl3p+qB5roDluVKflx9kKH1hEc8MpwkvU3qeIWppvgHowXlO9CfS572V10OA==}
+  '@libsql/linux-arm-musleabihf@0.5.15':
+    resolution: {integrity: sha512-mPiQ/Vah0cIZ2vMtrbEmQQywIdLCaZJsnWIM5OvBDlRj1QrEsfdHCNH0D0Z+e1+TJIap8+oQZrCmPiBQNHEXlQ==}
     cpu: [arm]
     os: [linux]
 
-  '@libsql/linux-arm64-gnu@0.5.12':
-    resolution: {integrity: sha512-0jpcuD7nHGD4XVTbId44SaY/JcqURKpxkXUcW4FsQ1qmkG5PsUy5l2Ob29P8HwGRBhDBomFWA4PvwJGrP/2pMA==}
+  '@libsql/linux-arm64-gnu@0.5.15':
+    resolution: {integrity: sha512-ckyquyUTjCrZlYJw8ijG2XwU3y9xvUtz3kjN4Y1XJxz8dbmH6kYZS+L8RYmOk5E6fe+2CuMZ9XBF8YqOTSJr2w==}
     cpu: [arm64]
     os: [linux]
 
-  '@libsql/linux-arm64-musl@0.5.12':
-    resolution: {integrity: sha512-ic5bHp9OTCNgmvqojqkxWfuPm4Y8CKfpUe/AqmXrstzqlE9EKg1qD9KZIjso2g4pX15KPWJGPSd29OXxHkzsog==}
+  '@libsql/linux-arm64-musl@0.5.15':
+    resolution: {integrity: sha512-P0NWPCogDNig489dOCuQQOSOYS+040yo5nDtPERtsee9mgHL9Qc7QZdmJ/2F8UHumyhW4ETnA9I2dB6CQxUwPA==}
     cpu: [arm64]
     os: [linux]
 
-  '@libsql/linux-x64-gnu@0.5.12':
-    resolution: {integrity: sha512-9zDtahCw2q0WJ54c/0vq142JtzI16OB8/U0bVCrpxF9DmLFyKBrAtEvoYdvKtFmvcvNn7YA5LEytr2g2q+xl1g==}
+  '@libsql/linux-x64-gnu@0.5.15':
+    resolution: {integrity: sha512-4/IFOhqwdm8Un3Y14GJNZKgFyRf8ejmrN+tSu5XBGAtDOv2AM3xBrGO5UCd8DUTyUVUI6G6dGEIFwzE8NCXsfg==}
     cpu: [x64]
     os: [linux]
 
-  '@libsql/linux-x64-musl@0.5.12':
-    resolution: {integrity: sha512-+fisSpE+2yK1N88shPtB7bEB8d+fF3CQmy1KnbJ4Oned8cw5uBfU46A1ICG+49RFaKxmoIQimHVAxfGV9NFQ3w==}
+  '@libsql/linux-x64-musl@0.5.15':
+    resolution: {integrity: sha512-f0Fm7I55ruVtUuGX0Sq8VfcD/MuD8Rag/v8bDlBa5L3cVbjD069SsRy8Nq3Sw9smctC4Zsul7APf09mGLlu/tQ==}
     cpu: [x64]
     os: [linux]
 
-  '@libsql/win32-x64-msvc@0.5.12':
-    resolution: {integrity: sha512-upNJCcgMgpAFXlL//rRVwlPgMT8uG1LoilHgCEpAp+GEjgBjoDgGW6iOkktuJC8paZh5kt9dCPh3r3jF3HWQjg==}
+  '@libsql/win32-x64-msvc@0.5.15':
+    resolution: {integrity: sha512-uAmRXE2tZV+9gg51m54NEvjfP9AKuoZeQLmzTnBylsHxy4VZviWCBz1i4tHSyk75rVOefmfWapBJ5ZdLegmpGg==}
     cpu: [x64]
     os: [win32]
 
@@ -3437,6 +3441,10 @@ packages:
     resolution: {integrity: sha512-xSw7bZEFKwOKrm/iv8e2BLt2ur98YZdrRD6nII8ditQeUsY2Q1JmIQ0rpILOhaLKYxxG2ivnoOpokzr9qLyDWA==}
     engines: {node: '>=18.0.0'}
 
+  '@smithy/core@3.7.0':
+    resolution: {integrity: sha512-7ov8hu/4j0uPZv8b27oeOFtIBtlFmM3ibrPv/Omx1uUdoXvcpJ00U+H/OWWC/keAguLlcqwtyL2/jTlSnApgNQ==}
+    engines: {node: '>=18.0.0'}
+
   '@smithy/credential-provider-imds@4.0.6':
     resolution: {integrity: sha512-hKMWcANhUiNbCJouYkZ9V3+/Qf9pteR1dnwgdyzR09R4ODEYx8BbUysHwRSyex4rZ9zapddZhLFTnT4ZijR4pw==}
     engines: {node: '>=18.0.0'}
@@ -3479,6 +3487,10 @@ packages:
     resolution: {integrity: sha512-AMtBR5pHppYMVD7z7G+OlHHAcgAN7v0kVKEpHuTO4Gb199Gowh0taYi9oDStFeUhetkeP55JLSVlTW1n9rFtUw==}
     engines: {node: '>=18.0.0'}
 
+  '@smithy/fetch-http-handler@5.1.0':
+    resolution: {integrity: sha512-mADw7MS0bYe2OGKkHYMaqarOXuDwRbO6ArD91XhHcl2ynjGCFF+hvqf0LyQcYxkA1zaWjefSkU7Ne9mqgApSgQ==}
+    engines: {node: '>=18.0.0'}
+
   '@smithy/hash-node@4.0.4':
     resolution: {integrity: sha512-qnbTPUhCVnCgBp4z4BUJUhOEkVwxiEi1cyFM+Zj6o+aY8OFGxUQleKWq8ltgp3dujuhXojIvJWdoqpm6dVO3lQ==}
     engines: {node: '>=18.0.0'}
@@ -3506,6 +3518,10 @@ packages:
   '@smithy/middleware-endpoint@2.5.1':
     resolution: {integrity: sha512-1/8kFp6Fl4OsSIVTWHnNjLnTL8IqpIb/D3sTSczrKFnrE9VMNWxnrRKNvpUHOJ6zpGD5f62TPm7+17ilTJpiCQ==}
     engines: {node: '>=14.0.0'}
+
+  '@smithy/middleware-endpoint@4.1.15':
+    resolution: {integrity: sha512-L2M0oz+r6Wv0KZ90MgClXmWkV7G72519Hd5/+K5i3gQMu4WNQykh7ERr58WT3q60dd9NqHSMc3/bAK0FsFg3Fw==}
+    engines: {node: '>=18.0.0'}
 
   '@smithy/middleware-endpoint@4.1.9':
     resolution: {integrity: sha512-AjDgX4UjORLltD/LZCBQTwjQqEfyrx/GeDTHcYLzIgf87pIT70tMWnN87NQpJru1K4ITirY2htSOxNECZJCBOg==}
@@ -3545,6 +3561,10 @@ packages:
 
   '@smithy/node-http-handler@4.0.6':
     resolution: {integrity: sha512-NqbmSz7AW2rvw4kXhKGrYTiJVDHnMsFnX4i+/FzcZAfbOBauPYs2ekuECkSbtqaxETLLTu9Rl/ex6+I2BKErPA==}
+    engines: {node: '>=18.0.0'}
+
+  '@smithy/node-http-handler@4.1.0':
+    resolution: {integrity: sha512-vqfSiHz2v8b3TTTrdXi03vNz1KLYYS3bhHCDv36FYDqxT7jvTll1mMnCrkD+gOvgwybuunh/2VmvOMqwBegxEg==}
     engines: {node: '>=18.0.0'}
 
   '@smithy/property-provider@2.2.0':
@@ -3605,6 +3625,10 @@ packages:
 
   '@smithy/smithy-client@4.4.1':
     resolution: {integrity: sha512-XPbcHRfd0iwx8dY5XCBCGyI7uweMW0oezYezxXcG8ANgvZ5YPuC6Ylh+n0bTHpdU3SCMZOnhzgVklYz+p3fIhw==}
+    engines: {node: '>=18.0.0'}
+
+  '@smithy/smithy-client@4.4.7':
+    resolution: {integrity: sha512-x+MxBNOcG7rY9i5QsbdgvvRJngKKvUJrbU5R5bT66PTH3e6htSupJ4Q+kJ3E7t6q854jyl57acjpPi6qG1OY5g==}
     engines: {node: '>=18.0.0'}
 
   '@smithy/types@2.12.0':
@@ -3704,6 +3728,10 @@ packages:
 
   '@smithy/util-stream@4.2.2':
     resolution: {integrity: sha512-aI+GLi7MJoVxg24/3J1ipwLoYzgkB4kUfogZfnslcYlynj3xsQ0e7vk4TnTro9hhsS5PvX1mwmkRqqHQjwcU7w==}
+    engines: {node: '>=18.0.0'}
+
+  '@smithy/util-stream@4.2.3':
+    resolution: {integrity: sha512-cQn412DWHHFNKrQfbHY8vSFI3nTROY1aIKji9N0tpp8gUABRilr7wdf8fqBbSlXresobM+tQFNk6I+0LXK/YZg==}
     engines: {node: '>=18.0.0'}
 
   '@smithy/util-uri-escape@2.2.0':
@@ -4385,6 +4413,9 @@ packages:
 
   '@types/node@20.19.1':
     resolution: {integrity: sha512-jJD50LtlD2dodAEO653i3YF04NWak6jN3ky+Ri3Em3mGR39/glWiboM/IePaRbgwSfqM1TpGXfAg8ohn/4dTgA==}
+
+  '@types/node@20.19.8':
+    resolution: {integrity: sha512-HzbgCY53T6bfu4tT7Aq3TvViJyHjLjPNaAS3HOuMc9pw97KHsUtXNX4L+wu59g1WnjsZSko35MbEqnO58rihhw==}
 
   '@types/node@22.15.29':
     resolution: {integrity: sha512-LNdjOkUDlU1RZb8e1kOIUpN1qQUlzGkEtbVNo53vbrwDg5om6oduhm4SiUaPW5ASTXhAiP0jInWG8Qx9fVlOeQ==}
@@ -7833,8 +7864,8 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
-  libsql@0.5.12:
-    resolution: {integrity: sha512-TikiQZ1j4TwFEqVdJdTM9ZTti28is/ytGEvn0S2MocOj69UKQetWACe/qd8KAD5VeNnQSVd6Nlm2AJx0DFW9Ag==}
+  libsql@0.5.15:
+    resolution: {integrity: sha512-N1ZhjpTadoxDW8UNssgJyZz+cAX/gi9OxOFHapH8AY6p7Qk/6umTC5UwQ+6bPnACDcxqbzhRlbLO+Mk60owFRA==}
     cpu: [x64, arm64, wasm32, arm]
     os: [darwin, linux, win32]
 
@@ -11067,6 +11098,18 @@ packages:
       utf-8-validate:
         optional: true
 
+  ws@8.18.3:
+    resolution: {integrity: sha512-PEIGCY5tSlUt50cqyMXfCzX+oOPqN0vuGqWzbcJ2xvnkzkq46oOpz7dQaTDBdfICb4N14+GARUDw2XV2N4tvzg==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
   xml-name-validator@4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
     engines: {node: '>=12'}
@@ -11220,14 +11263,14 @@ snapshots:
 
   '@antfu/utils@8.1.1': {}
 
-  '@anthropic-ai/bedrock-sdk@0.22.1':
+  '@anthropic-ai/bedrock-sdk@0.22.4':
     dependencies:
       '@anthropic-ai/sdk': 0.51.0
       '@aws-crypto/sha256-js': 4.0.0
       '@aws-sdk/client-bedrock-runtime': 3.821.0
       '@aws-sdk/credential-providers': 3.821.0
       '@smithy/eventstream-serde-node': 2.2.0
-      '@smithy/fetch-http-handler': 2.5.0
+      '@smithy/fetch-http-handler': 5.1.0
       '@smithy/protocol-http': 3.3.0
       '@smithy/signature-v4': 3.1.2
       '@smithy/smithy-client': 2.5.1
@@ -11257,7 +11300,7 @@ snapshots:
   '@aws-crypto/crc32@3.0.0':
     dependencies:
       '@aws-crypto/util': 3.0.0
-      '@aws-sdk/types': 3.821.0
+      '@aws-sdk/types': 3.840.0
       tslib: 1.14.1
 
   '@aws-crypto/crc32@5.2.0':
@@ -11279,7 +11322,7 @@ snapshots:
   '@aws-crypto/sha256-js@4.0.0':
     dependencies:
       '@aws-crypto/util': 4.0.0
-      '@aws-sdk/types': 3.821.0
+      '@aws-sdk/types': 3.840.0
       tslib: 1.14.1
 
   '@aws-crypto/sha256-js@5.2.0':
@@ -11294,13 +11337,13 @@ snapshots:
 
   '@aws-crypto/util@3.0.0':
     dependencies:
-      '@aws-sdk/types': 3.821.0
+      '@aws-sdk/types': 3.840.0
       '@aws-sdk/util-utf8-browser': 3.259.0
       tslib: 1.14.1
 
   '@aws-crypto/util@4.0.0':
     dependencies:
-      '@aws-sdk/types': 3.821.0
+      '@aws-sdk/types': 3.840.0
       '@aws-sdk/util-utf8-browser': 3.259.0
       tslib: 1.14.1
 
@@ -11379,7 +11422,7 @@ snapshots:
       '@aws-sdk/util-user-agent-node': 3.821.0
       '@smithy/config-resolver': 4.1.4
       '@smithy/core': 3.5.1
-      '@smithy/fetch-http-handler': 5.0.4
+      '@smithy/fetch-http-handler': 5.1.0
       '@smithy/hash-node': 4.0.4
       '@smithy/invalid-dependency': 4.0.4
       '@smithy/middleware-content-length': 4.0.4
@@ -11390,7 +11433,7 @@ snapshots:
       '@smithy/node-config-provider': 4.1.3
       '@smithy/node-http-handler': 4.0.6
       '@smithy/protocol-http': 5.1.2
-      '@smithy/smithy-client': 4.4.1
+      '@smithy/smithy-client': 4.4.7
       '@smithy/types': 4.3.1
       '@smithy/url-parser': 4.0.4
       '@smithy/util-base64': 4.0.0
@@ -11422,18 +11465,18 @@ snapshots:
       '@aws-sdk/util-user-agent-node': 3.821.0
       '@smithy/config-resolver': 4.1.4
       '@smithy/core': 3.5.1
-      '@smithy/fetch-http-handler': 5.0.4
+      '@smithy/fetch-http-handler': 5.1.0
       '@smithy/hash-node': 4.0.4
       '@smithy/invalid-dependency': 4.0.4
       '@smithy/middleware-content-length': 4.0.4
-      '@smithy/middleware-endpoint': 4.1.9
+      '@smithy/middleware-endpoint': 4.1.15
       '@smithy/middleware-retry': 4.1.10
       '@smithy/middleware-serde': 4.0.8
       '@smithy/middleware-stack': 4.0.4
       '@smithy/node-config-provider': 4.1.3
       '@smithy/node-http-handler': 4.0.6
       '@smithy/protocol-http': 5.1.2
-      '@smithy/smithy-client': 4.4.1
+      '@smithy/smithy-client': 4.4.7
       '@smithy/types': 4.3.1
       '@smithy/url-parser': 4.0.4
       '@smithy/util-base64': 4.0.0
@@ -11485,11 +11528,11 @@ snapshots:
     dependencies:
       '@aws-sdk/core': 3.821.0
       '@aws-sdk/types': 3.821.0
-      '@smithy/fetch-http-handler': 5.0.4
+      '@smithy/fetch-http-handler': 5.1.0
       '@smithy/node-http-handler': 4.0.6
       '@smithy/property-provider': 4.0.4
       '@smithy/protocol-http': 5.1.2
-      '@smithy/smithy-client': 4.4.1
+      '@smithy/smithy-client': 4.4.7
       '@smithy/types': 4.3.1
       '@smithy/util-stream': 4.2.2
       tslib: 2.8.1
@@ -11646,7 +11689,7 @@ snapshots:
       '@aws-sdk/util-user-agent-node': 3.821.0
       '@smithy/config-resolver': 4.1.4
       '@smithy/core': 3.5.1
-      '@smithy/fetch-http-handler': 5.0.4
+      '@smithy/fetch-http-handler': 5.1.0
       '@smithy/hash-node': 4.0.4
       '@smithy/invalid-dependency': 4.0.4
       '@smithy/middleware-content-length': 4.0.4
@@ -11657,7 +11700,7 @@ snapshots:
       '@smithy/node-config-provider': 4.1.3
       '@smithy/node-http-handler': 4.0.6
       '@smithy/protocol-http': 5.1.2
-      '@smithy/smithy-client': 4.4.1
+      '@smithy/smithy-client': 4.4.7
       '@smithy/types': 4.3.1
       '@smithy/url-parser': 4.0.4
       '@smithy/util-base64': 4.0.0
@@ -11695,6 +11738,11 @@ snapshots:
       - aws-crt
 
   '@aws-sdk/types@3.821.0':
+    dependencies:
+      '@smithy/types': 4.3.1
+      tslib: 2.8.1
+
+  '@aws-sdk/types@3.840.0':
     dependencies:
       '@smithy/types': 4.3.1
       tslib: 2.8.1
@@ -12808,25 +12856,25 @@ snapshots:
 
   '@libsql/client@0.15.8':
     dependencies:
-      '@libsql/core': 0.15.8
+      '@libsql/core': 0.15.10
       '@libsql/hrana-client': 0.7.0
       js-base64: 3.7.7
-      libsql: 0.5.12
+      libsql: 0.5.15
       promise-limit: 2.7.0
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
     optional: true
 
-  '@libsql/core@0.15.8':
+  '@libsql/core@0.15.10':
     dependencies:
       js-base64: 3.7.7
     optional: true
 
-  '@libsql/darwin-arm64@0.5.12':
+  '@libsql/darwin-arm64@0.5.15':
     optional: true
 
-  '@libsql/darwin-x64@0.5.12':
+  '@libsql/darwin-x64@0.5.15':
     optional: true
 
   '@libsql/hrana-client@0.7.0':
@@ -12846,31 +12894,31 @@ snapshots:
   '@libsql/isomorphic-ws@0.1.5':
     dependencies:
       '@types/ws': 8.18.1
-      ws: 8.18.2
+      ws: 8.18.3
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
     optional: true
 
-  '@libsql/linux-arm-gnueabihf@0.5.12':
+  '@libsql/linux-arm-gnueabihf@0.5.15':
     optional: true
 
-  '@libsql/linux-arm-musleabihf@0.5.12':
+  '@libsql/linux-arm-musleabihf@0.5.15':
     optional: true
 
-  '@libsql/linux-arm64-gnu@0.5.12':
+  '@libsql/linux-arm64-gnu@0.5.15':
     optional: true
 
-  '@libsql/linux-arm64-musl@0.5.12':
+  '@libsql/linux-arm64-musl@0.5.15':
     optional: true
 
-  '@libsql/linux-x64-gnu@0.5.12':
+  '@libsql/linux-x64-gnu@0.5.15':
     optional: true
 
-  '@libsql/linux-x64-musl@0.5.12':
+  '@libsql/linux-x64-musl@0.5.15':
     optional: true
 
-  '@libsql/win32-x64-msvc@0.5.12':
+  '@libsql/win32-x64-msvc@0.5.15':
     optional: true
 
   '@lmstudio/lms-isomorphic@0.4.5':
@@ -13853,6 +13901,18 @@ snapshots:
       '@smithy/util-utf8': 4.0.0
       tslib: 2.8.1
 
+  '@smithy/core@3.7.0':
+    dependencies:
+      '@smithy/middleware-serde': 4.0.8
+      '@smithy/protocol-http': 5.1.2
+      '@smithy/types': 4.3.1
+      '@smithy/util-base64': 4.0.0
+      '@smithy/util-body-length-browser': 4.0.0
+      '@smithy/util-middleware': 4.0.4
+      '@smithy/util-stream': 4.2.3
+      '@smithy/util-utf8': 4.0.0
+      tslib: 2.8.1
+
   '@smithy/credential-provider-imds@4.0.6':
     dependencies:
       '@smithy/node-config-provider': 4.1.3
@@ -13926,6 +13986,14 @@ snapshots:
       '@smithy/util-base64': 4.0.0
       tslib: 2.8.1
 
+  '@smithy/fetch-http-handler@5.1.0':
+    dependencies:
+      '@smithy/protocol-http': 5.1.2
+      '@smithy/querystring-builder': 4.0.4
+      '@smithy/types': 4.3.1
+      '@smithy/util-base64': 4.0.0
+      tslib: 2.8.1
+
   '@smithy/hash-node@4.0.4':
     dependencies:
       '@smithy/types': 4.3.1
@@ -13964,6 +14032,17 @@ snapshots:
       '@smithy/types': 2.12.0
       '@smithy/url-parser': 2.2.0
       '@smithy/util-middleware': 2.2.0
+      tslib: 2.8.1
+
+  '@smithy/middleware-endpoint@4.1.15':
+    dependencies:
+      '@smithy/core': 3.7.0
+      '@smithy/middleware-serde': 4.0.8
+      '@smithy/node-config-provider': 4.1.3
+      '@smithy/shared-ini-file-loader': 4.0.4
+      '@smithy/types': 4.3.1
+      '@smithy/url-parser': 4.0.4
+      '@smithy/util-middleware': 4.0.4
       tslib: 2.8.1
 
   '@smithy/middleware-endpoint@4.1.9':
@@ -14033,6 +14112,14 @@ snapshots:
       tslib: 2.8.1
 
   '@smithy/node-http-handler@4.0.6':
+    dependencies:
+      '@smithy/abort-controller': 4.0.4
+      '@smithy/protocol-http': 5.1.2
+      '@smithy/querystring-builder': 4.0.4
+      '@smithy/types': 4.3.1
+      tslib: 2.8.1
+
+  '@smithy/node-http-handler@4.1.0':
     dependencies:
       '@smithy/abort-controller': 4.0.4
       '@smithy/protocol-http': 5.1.2
@@ -14134,6 +14221,16 @@ snapshots:
       '@smithy/protocol-http': 5.1.2
       '@smithy/types': 4.3.1
       '@smithy/util-stream': 4.2.2
+      tslib: 2.8.1
+
+  '@smithy/smithy-client@4.4.7':
+    dependencies:
+      '@smithy/core': 3.7.0
+      '@smithy/middleware-endpoint': 4.1.15
+      '@smithy/middleware-stack': 4.0.4
+      '@smithy/protocol-http': 5.1.2
+      '@smithy/types': 4.3.1
+      '@smithy/util-stream': 4.2.3
       tslib: 2.8.1
 
   '@smithy/types@2.12.0':
@@ -14271,6 +14368,17 @@ snapshots:
     dependencies:
       '@smithy/fetch-http-handler': 5.0.4
       '@smithy/node-http-handler': 4.0.6
+      '@smithy/types': 4.3.1
+      '@smithy/util-base64': 4.0.0
+      '@smithy/util-buffer-from': 4.0.0
+      '@smithy/util-hex-encoding': 4.0.0
+      '@smithy/util-utf8': 4.0.0
+      tslib: 2.8.1
+
+  '@smithy/util-stream@4.2.3':
+    dependencies:
+      '@smithy/fetch-http-handler': 5.1.0
+      '@smithy/node-http-handler': 4.1.0
       '@smithy/types': 4.3.1
       '@smithy/util-base64': 4.0.0
       '@smithy/util-buffer-from': 4.0.0
@@ -15096,6 +15204,11 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
+  '@types/node@20.19.8':
+    dependencies:
+      undici-types: 6.21.0
+    optional: true
+
   '@types/node@22.15.29':
     dependencies:
       undici-types: 6.21.0
@@ -15171,7 +15284,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 22.15.29
+      '@types/node': 20.19.8
     optional: true
 
   '@types/yargs-parser@21.0.3': {}
@@ -19268,20 +19381,20 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  libsql@0.5.12:
+  libsql@0.5.15:
     dependencies:
       '@neon-rs/load': 0.0.4
       detect-libc: 2.0.2
     optionalDependencies:
-      '@libsql/darwin-arm64': 0.5.12
-      '@libsql/darwin-x64': 0.5.12
-      '@libsql/linux-arm-gnueabihf': 0.5.12
-      '@libsql/linux-arm-musleabihf': 0.5.12
-      '@libsql/linux-arm64-gnu': 0.5.12
-      '@libsql/linux-arm64-musl': 0.5.12
-      '@libsql/linux-x64-gnu': 0.5.12
-      '@libsql/linux-x64-musl': 0.5.12
-      '@libsql/win32-x64-msvc': 0.5.12
+      '@libsql/darwin-arm64': 0.5.15
+      '@libsql/darwin-x64': 0.5.15
+      '@libsql/linux-arm-gnueabihf': 0.5.15
+      '@libsql/linux-arm-musleabihf': 0.5.15
+      '@libsql/linux-arm64-gnu': 0.5.15
+      '@libsql/linux-arm64-musl': 0.5.15
+      '@libsql/linux-x64-gnu': 0.5.15
+      '@libsql/linux-x64-musl': 0.5.15
+      '@libsql/win32-x64-msvc': 0.5.15
     optional: true
 
   lie@3.3.0:
@@ -23196,6 +23309,9 @@ snapshots:
       signal-exit: 3.0.7
 
   ws@8.18.2: {}
+
+  ws@8.18.3:
+    optional: true
 
   xml-name-validator@4.0.0: {}
 
